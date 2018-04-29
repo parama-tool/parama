@@ -15,7 +15,7 @@ def create_detailed_results(pdb_id,chain_id):
     for line in infile:
         lineparts=line.split(",")
         prob=float(lineparts[-1])
-        if prob!=0 and prob<0.25:
+        if prob!=0 and prob<0.25: #for all phi-psi values with probability less than 0.25 in the structure, store the corresponding bond geometry information in detailed_results.txt file
             opfile.write("\nExpected geometries for : "+lineparts[2]+lineparts[3]+"\t phi = "+lineparts[0]+"\tpsi = "+lineparts[1]+"\tprobability = "+str(prob)+"\n\n")
             disal_file=open("disallowed_phipsi_geometry/"+lineparts[0]+"_"+lineparts[1]+".dat","r")
             opfile.write(disal_file.read())
