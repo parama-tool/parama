@@ -12,7 +12,6 @@ def find_expected_short_contacts(pdb_id,chain_id):
 		psi=int(lineparts[1])
 		opfile.write(lineparts[0]+','+lineparts[1]+','+lineparts[2]+','+lineparts[3]+'\n')
 		contacts=shrt_conts[str(phi)+','+str(psi)] #get the short contact information and write to output
-		#contact_parts=contacts.split('\n')
 		for item in contacts:		
 			opfile.write(item)
 	opfile.close()
