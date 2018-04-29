@@ -7,7 +7,6 @@ import get_shrt_conts
 import get_disallowed_phipsi_geometry
 import sys
 
-UPLOAD_DIR = 'pdb_files/'
 
 no_of_args=len(sys.argv)
 if no_of_args>3 or no_of_args<3:
@@ -17,8 +16,6 @@ pdb_file_name=sys.argv[1].strip()
 chain_id=sys.argv[2].strip().upper()
 if not os.path.isfile(pdb_file_name):
     sys.exit("File error : The entered pdb file does not exist\n\n")
-
-flag=0
 
 pdb_id=pdb_file_name.split(".")[0]
 
@@ -58,7 +55,7 @@ else: #disallowed phi-psi are there, do short contact analysis
         if float(lineparts[4])<=0.25: #if probability less than 0.25
             flag1=1 #note that phi psi with probability lower than 0.25 is present
     infile.close() #end of loop of disallowed phi-psi
-    if flag1==1: #there are probability values lower than 0.25, give option for email
+    if flag1==1: #there are probability values lower than 0.25, generate detailed results pertaining to expected geometry
         get_disallowed_phipsi_geometry.create_detailed_results(pdb_id,chain_id)
         print "This structure has phi-psi values with probability lower than 0.25. Details on expected geometry for such phi-psi values, obtained from small molecule peptide structures, can be seen in "+pdb_id+"_"+chain_id+"_detailed_results.txt in results folder\n"
         logfile.write("\nThis structure has phi-psi values with probability lower than 0.25. Details on expected geometry for such phi-psi values, obtained from small molecule peptide structures, can be seen in "+pdb_id+"_"+chain_id+"_detailed_results.txt in results folder\n")
