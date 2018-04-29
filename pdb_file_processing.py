@@ -259,22 +259,4 @@ def calculateDihedrals(pdb_id,chain_id):
     else: #no phi-psi could be calculated
         return 0
 
-def addchainid(pdb_id):
-    pdbfile=open(pdb_id+'.pdb','r')
-    towrite=""
-    for line in pdbfile:
-        if line[0:3]=="TER":
-            towrite+=line
-            break
-        if line[0:4]=="ATOM":
-            if line[21]==" ":
-                towrite+=line[:21]+"A"+line[22:]
-            else:
-                towrite+=line
-    pdbfile.close()
-    opfile=open(pdb_id+'.pdb','w')
-    opfile.write(towrite)
-    opfile.close()
-    return towrite[21]
-    
 
