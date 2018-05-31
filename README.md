@@ -1,5 +1,5 @@
 # parama
-A tool for sterechemical quality assessment of super high-resolution protein structures
+A tool for stereochemical quality assessment of super high-resolution protein structures
 ********************************************************************************************************
 About PARAMA:
 ********************************************************************************************************
@@ -16,9 +16,11 @@ PARAMA is entirely written in python and requires atleast python 2.6 installed i
 INSTRUCTIONS FOR USE:
 *********************************************************************************************************
 After downloading the software from github, unzip it. 
+
 parama_results.py is the main script, which imports and uses other helper scripts.
 To run the program, type
-  python parama_results.py <pdb_file_name> <chain_id>
+  python parama_results.py <pdb_file_name> <chain_id>.
+  
 All the results generated from the run will be stored in the results folder. A log file will be generated in the current working directory.
 
 PLEASE NOTE:
